@@ -1,0 +1,7 @@
+::ng-deep .link-row:nth-child(odd) {
+    background-color: #eeeeee;
+}
+
+::ng-deep .link-row:nth-child(even) {
+    background-color: #cccccc;
+}

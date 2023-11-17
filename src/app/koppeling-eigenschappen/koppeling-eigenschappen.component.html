@@ -1,0 +1,86 @@
+<!-- TO DO: a lot of clutter/duplicate HTML here, so should extract a further component -->
+
+<div class="modal fade" [attr.id]="'propertiesModal' + koppeling.id" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Eigenschappen van koppeling</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex align-items-center pb-1">
+            <div class="col-4">Naam:</div>
+            <div class="col-8">
+                <input type="text" [value]="koppeling.naam" />
+            </div>
+        </div>
+        <div class="d-flex align-items-center pb-1">
+            <div class="col-4">URL:</div>
+            <div class="col-8">
+                <input type="text" [value]="koppeling.url" />
+            </div>
+        </div>
+        <div class="d-flex align-items-center pb-1">
+            <div class="col-4">AGB-code:</div>
+            <div class="col-8">
+                <input type="text" [value]="koppeling.agb" />
+            </div>
+        </div>
+        <div class="d-flex align-items-center pb-1">
+            <div class="col-4">Ketenzorgtype:</div>
+            <div class="col-8">
+                <select>
+                    <option value=""></option>
+                    <option *ngFor="let ketenzorgType of ketenzorgTypen" [selected]="ketenzorgType == koppeling!.ketenzorgType" [value]="ketenzorgType">
+                      {{ ketenzorgType }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="d-flex align-items-center pb-1">
+            <div class="col-4">Kleur:</div>
+            <div class="col-8">
+                <div style="text-align: center;" [style]="getBackgroundStyle(koppeling.kleur)">{{ getLinkColorAsHexString(koppeling) }}</div>
+            </div>
+        </div>
+        <div class="d-flex align-items-center pb-1">
+            <div class="col-4">Font awesome icoon:</div>
+            <div class="col-8">
+                <input type="text" [value]="koppeling.fontAwesome" />
+            </div>
+        </div>
+        <div class="d-flex align-items-center pb-1">
+            <div class="col-4">Logo-pad (.svg):</div>
+            <div class="col-8">
+                <input type="text" [value]="koppeling.logoPad" />
+            </div>
+        </div>
+        <div class="d-flex align-items-center pb-1">
+            <div class="col-4">Volgorde:</div>
+            <div class="col-8">
+                <input type="number" [value]="koppeling.volgorde" />
+            </div>
+        </div>
+        <div class="d-flex align-items-center pb-1">
+            <div class="col-4">Permissie:</div>
+            <div class="col-8">
+                <select>
+                    <option *ngFor="let permissie of permissies" [selected]="permissie == koppeling!.permissie" [value]="permissie">
+                      {{ permissie }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="d-flex align-items-center pb-1">
+            <div class="col-4">Op actiepagina:</div>
+            <div class="col-8">
+                <input type="checkbox" [value]="koppeling.opActiePagina">
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuleren</button>
+        <button type="button" class="btn btn-primary">Opslaan</button>
+    </div>
+  </div>
+</div>

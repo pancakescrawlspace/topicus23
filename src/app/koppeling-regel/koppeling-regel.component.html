@@ -1,0 +1,8 @@
+<div class="d-flex">
+    <div class="k-naam">{{ koppeling.naam }}</div>
+    <div class="k-controls" data-bs-toggle="modal" [attr.data-bs-target]="'#propertiesModal' + koppeling.id">
+        <u>Edit</u>
+    </div>    
+</div>
+
+<koppeling-eigenschappen [koppeling]="koppeling" />
